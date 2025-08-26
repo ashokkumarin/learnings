@@ -2,8 +2,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #333;
+  background: #f5f5f5; /* Plain neutral background */
+  color: #1f2937;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -13,37 +13,47 @@
 
 .app-header {
   text-align: center;
-  padding: 2rem 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  background: #ffffff; /* Plain surface */
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .app-header h1 {
-  margin: 0 0 0.5rem 0;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0 0 0.25rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
 }
 
 .app-header h2 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.9);
+  color: #6b7280;
 }
 
 .app-main {
   flex: 1;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  max-width: 1200px;
+  gap: 1rem;
+  max-width: 900px;
   margin: 0 auto;
   width: 100%;
 }
+/* Card layout like screenshot */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.card-header { padding: 24px; border-bottom: 1px solid #e5e7eb; }
+.card-header h1 { margin: 0; font-size: 20px; font-weight: 600; color: #111827; }
+.card-header p { margin: 6px 0 0 0; color: #6b7280; font-size: 14px; }
+.card-body { padding: 24px; }
 
 .info-section {
   display: flex;
@@ -51,12 +61,11 @@
 }
 
 .info-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
   min-width: 300px;
 }
 
@@ -84,12 +93,11 @@
 }
 
 .message-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
 }
 
 .message-card h3 {
@@ -107,36 +115,38 @@
 .message-text-input {
   flex: 1;
   padding: 0.75rem 1rem;
-  border: 2px solid #e1e5e9;
+  border: 1px solid #e5e7eb; /* Material-like outline */
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
 }
 
 .message-text-input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #3f51b5; /* Material primary */
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.15);
 }
 
 .send-button {
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0.5rem 1rem;
+  background: #3f51b5; /* Material primary */
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 6px rgba(63, 81, 181, 0.25);
 }
 
 .send-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  background: #3647a7;
 }
 
 .send-button:active {
-  transform: translateY(0);
+  transform: translateY(0.5px);
 }
 
 .messages-list {
@@ -180,10 +190,9 @@
 
 .app-footer {
   text-align: center;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
 }
 
 .app-footer p {
@@ -199,23 +208,23 @@
 
 .chat-textarea-wrapper {
   position: relative;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 10px 56px 10px 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  background: #ffffff;
+  border: 1px solid #e5e7eb; /* Outlined surface */
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
 }
 
 .chat-textarea {
   width: 100%;
   resize: vertical;
-  max-height: 200px;
-  min-height: 56px;
+  max-height: 320px;
+  min-height: 140px;
   border: none;
   outline: none;
   background: transparent;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #111827;
 }
 
@@ -227,7 +236,7 @@
   width: 36px;
   border-radius: 10px;
   border: none;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #3f51b5; /* Material primary */
   color: white;
   font-size: 16px;
   font-weight: 700;
@@ -235,14 +244,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 18px rgba(102, 126, 234, 0.3);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  box-shadow: 0 2px 6px rgba(63, 81, 181, 0.25);
+  transition: background 0.15s ease, transform 0.1s ease, opacity 0.15s ease;
 }
 
-.chat-send-btn:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 22px rgba(102, 126, 234, 0.4);
+.action-row { display: flex; justify-content: flex-end; margin-top: 16px; }
+.primary-button {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px; background: #3f51b5; color: #fff;
+  border: none; border-radius: 8px; font-weight: 600; cursor: pointer;
+  box-shadow: 0 2px 6px rgba(63, 81, 181, 0.25); transition: background 0.15s ease;
 }
+.primary-button:hover:not(:disabled) { background: #3647a7; }
+.primary-button:disabled { opacity: .5; cursor: not-allowed; }
+.primary-button .icon { display: inline-flex; }
 
 .chat-send-btn:active:not(:disabled) {
   transform: translateY(0);

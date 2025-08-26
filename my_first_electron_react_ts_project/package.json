@@ -6,6 +6,7 @@
   "homepage": "./",
   "scripts": {
     "start": "electron .",
+    "debug": "npm run build && npm run dev",
     "dev": "concurrently \"npm run dev:renderer\" \"npm run dev:main\"",
     "dev:renderer": "vite",
     "dev:main": ".\\node_modules\\.bin\\tsc.cmd -p tsconfig.main.json && electron .",
@@ -35,6 +36,7 @@
     "vite": "^5.0.10"
   },
   "dependencies": {
+    "lucide-react": "^0.541.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
