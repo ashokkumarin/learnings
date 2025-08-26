@@ -1,27 +1,50 @@
-import React from 'react'
+import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [textValue, setTextValue] = useState('')
+
+  const handleSubmit = () => {
+    const trimmed = textValue.trim()
+    if (!trimmed) return
+    console.log('Submitted value:', trimmed)
+    setTextValue('')
+  }
+
+  const handleKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      handleSubmit()
+    }
+  }
+
   return (
     <div className="app">
-      <header className="app-header">
-        <h1>🚀 Electron + React + TypeScript</h1>
-        <h2>Hello World!</h2>
-      </header>
-
       <main className="app-main">
-        <div className="info-section">
-          <div className="info-card">
-            <h3>App Information</h3>
-            <p><strong>Status:</strong> React is rendering! ✅</p>
-            <p><strong>Time:</strong> {new Date().toLocaleString()}</p>
+        <div className="chat-input">
+          <div className="chat-textarea-wrapper">
+            <textarea
+              className="chat-textarea"
+              value={textValue}
+              onChange={(e) => setTextValue(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Message..."
+              aria-label="chat input"
+              rows={3}
+            />
+            <button
+              className="chat-send-btn"
+              onClick={handleSubmit}
+              aria-label="send message"
+              disabled={!textValue.trim()}
+              title={textValue.trim() ? 'Send (Enter)' : 'Type a message'}
+            >
+              ↑
+            </button>
           </div>
+          <div className="chat-hint">Press Enter to send • Shift+Enter for newline</div>
         </div>
       </main>
-
-      <footer className="app-footer">
-        <p>Built with ❤️ using Electron, React, and TypeScript</p>
-      </footer>
     </div>
   )
 }
